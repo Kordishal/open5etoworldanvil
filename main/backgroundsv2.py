@@ -147,7 +147,7 @@ def get_content(world_id: str, category_id: str) -> Iterable[Dict[str, Any]]:
         main_content = dict()
         sidebar_content = dict()
         for benefit in result['benefits']:
-            if benefit['type'] in ['language', 'skill_proficiency', 'equipment', 'ability_score_increase',
+            if benefit['type'] in ['language', 'skill_proficiency', 'equipment', 'ability_score', 'ability_score_increase',
                                    'tool_proficiency']:
                 sidebar_content[benefit['type']] = f"--{benefit['name']}::{benefit['desc']}--"
             elif benefit['type'] in ['feature', 'suggested_characteristics', 'adventures_and_advancement',
