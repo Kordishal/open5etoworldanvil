@@ -43,10 +43,12 @@ if __name__ == '__main__':
                 textdata = update(entity)
                 print(textdata)
                 block = client.block.patch(existing_blocks[entity['name']], {
+                    'state': 'public',
                     'folderId': glory_of_giants_folder,
                     'folder': {
                         'id': glory_of_giants_folder
                     },
+                    'isShared': True,
                     'tags': f"BGG,{entity['type'].capitalize()},CR {entity['cr']}",
                     'textualdata': textdata
                 })
@@ -59,7 +61,7 @@ if __name__ == '__main__':
                     # 'folder': {
                     #     'id': glory_of_giants_folder
                     # },
-                    'isShared': False,
+                    'isShared': True,
                     'isSRD': False,
                     'template': {
                         'id': 2991  # D&D 5e Statblock Monster Template
