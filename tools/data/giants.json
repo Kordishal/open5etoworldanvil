@@ -1,0 +1,1126 @@
+[
+	{
+		"name": "Mist Hulk",
+		"source": "BGG",
+		"page": 160,
+		"size": [
+			"L"
+		],
+		"type": "elemental",
+		"alignment": [
+			"C",
+			"N"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			15
+		],
+		"hp": {
+			"average": 94,
+			"formula": "9d10 + 45"
+		},
+		"speed": {
+			"walk": 0,
+			"fly": {
+				"number": 40,
+				"condition": "(hover)"
+			},
+			"canHover": true
+		},
+		"str": 18,
+		"dex": 21,
+		"con": 20,
+		"int": 11,
+		"wis": 13,
+		"cha": 16,
+		"save": {
+			"con": "+8",
+			"wis": "+4",
+			"cha": "+6"
+		},
+		"skill": {
+			"perception": "+4",
+			"stealth": "+8"
+		},
+		"passive": 14,
+		"resist": [
+			"thunder"
+		],
+		"immune": [
+			"poison"
+		],
+		"conditionImmune": [
+			"exhaustion",
+			"paralyzed",
+			"poisoned",
+			"restrained"
+		],
+		"languages": [
+			"Auran",
+			"Giant"
+		],
+		"cr": "6",
+		"trait": [
+			{
+				"name": "Air Form",
+				"entries": [
+					"The mist hulk can enter another creature's space and stop there. It can move through a space as narrow as 1 inch without squeezing."
+				]
+			},
+			{
+				"name": "Death Burst",
+				"entries": [
+					"When the mist hulk dies, it bursts in a wave of water. Each creature within 10 feet of it must make a {@dc 16} Dexterity saving throw. On a failed save, a creature takes 11 ({@damage 2d10}) bludgeoning damage and has the {@condition prone} condition. On a successful save, a creature takes half as much damage only."
+				]
+			}
+		],
+		"action": [
+			{
+				"name": "Multiattack",
+				"entries": [
+					"The mist hulk makes two Slam attacks."
+				]
+			},
+			{
+				"name": "Slam",
+				"entries": [
+					"{@atk mw} {@hit 8} to hit, reach 10 ft., one target. {@h}16 ({@damage 2d10 + 5}) cold damage."
+				]
+			},
+			{
+				"name": "Hideous Wailing {@recharge 5}",
+				"entries": [
+					"The mist hulk releases a wail infused with magical anguish. Each creature within 30 feet of it must make a {@dc 14} Wisdom saving throw. A creature in the mist hulk's space has disadvantage on the saving throw. On a failed save, a creature takes 14 ({@damage 4d6}) psychic damage and has the {@condition incapacitated} condition for 1 minute. The affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+				]
+			}
+		],
+		"traitTags": [
+			"Death Burst"
+		],
+		"actionTags": [
+			"Multiattack"
+		],
+		"languageTags": [
+			"AU",
+			"GI"
+		],
+		"damageTags": [
+			"B",
+			"C",
+			"Y"
+		],
+		"miscTags": [
+			"AOE",
+			"MW",
+			"RCH"
+		],
+		"conditionInflict": [
+			"incapacitated",
+			"prone"
+		],
+		"savingThrowForced": [
+			"dexterity",
+			"wisdom"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"fly",
+			"canHover",
+			"hover"
+		],
+		"_fSpeed": 40,
+		"_fAc": [
+			15
+		],
+		"_fHp": 94,
+		"_fAlign": [
+			"C",
+			"N",
+			"NY"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [
+			"thunder"
+		],
+		"_fImm": [
+			"poison"
+		],
+		"_fCondImm": [
+			"exhaustion",
+			"paralyzed",
+			"poisoned",
+			"restrained"
+		],
+		"_fSave": [
+			"con",
+			"wis",
+			"cha"
+		],
+		"_fSkill": [
+			"perception",
+			"stealth"
+		],
+		"_fSources": "BGG",
+		"_fPassive": 14,
+		"_fStr": 18,
+		"_fDex": 21,
+		"_fCon": 20,
+		"_fInt": 11,
+		"_fWis": 13,
+		"_fCha": 16,
+		"_fMisc": [
+			"AOE",
+			"MW",
+			"RCH",
+			"Has Token",
+			"Has Info",
+			"Has Images",
+			"Has Recharge"
+		],
+		"_fLanguageTags": [
+			"AU",
+			"GI"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"elemental"
+			],
+			"tags": [],
+			"asText": "Elemental",
+			"asTextShort": "Elemental",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "6",
+		"_fCr": [
+			"6"
+		]
+	},
+	{
+		"name": "Mud Hulk",
+		"source": "BGG",
+		"page": 161,
+		"size": [
+			"L"
+		],
+		"type": "elemental",
+		"alignment": [
+			"C",
+			"E"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			{
+				"ac": 13,
+				"from": [
+					"natural armor"
+				]
+			}
+		],
+		"hp": {
+			"average": 68,
+			"formula": "8d10 + 24"
+		},
+		"speed": {
+			"walk": 40
+		},
+		"str": 16,
+		"dex": 8,
+		"con": 16,
+		"int": 5,
+		"wis": 9,
+		"cha": 6,
+		"passive": 9,
+		"resist": [
+			"acid"
+		],
+		"conditionImmune": [
+			"exhaustion",
+			"paralyzed"
+		],
+		"languages": [
+			"Giant",
+			"Terran"
+		],
+		"cr": "3",
+		"trait": [
+			{
+				"name": "Amorphous",
+				"entries": [
+					"The mud hulk can move through a space as narrow as 1 inch without squeezing."
+				]
+			},
+			{
+				"name": "Sticky Mud",
+				"entries": [
+					"The ground within 15 feet of the mud hulk is difficult terrain for other creatures."
+				]
+			}
+		],
+		"action": [
+			{
+				"name": "Enveloping Slam",
+				"entries": [
+					"{@atk mw} {@hit 5} to hit, reach 10 ft., one target. {@h}9 ({@damage 1d12 + 3}) bludgeoning damage. If the target is a Large or smaller creature, it must succeed on a {@dc 13} Strength saving throw or be pulled into the mud hulk's space and be engulfed by the mud hulk. While engulfed, the target can't breathe, has the {@condition restrained} condition, and takes 6 ({@damage 1d12}) acid damage at the start of each of its turns. When the mud hulk moves, the engulfed target moves with it. The mud hulk can have only one target engulfed at a time. While a creature is engulfed, the mud hulk can't use its Amorphous trait.",
+					"An engulfed target can repeat the saving throw at the end of each of its turns. On a successful save, the target escapes and enters the nearest unoccupied space."
+				]
+			},
+			{
+				"name": "Mud Splash",
+				"entries": [
+					"The mud hulk lobs a mass of mud that splashes in a 10-foot-radius sphere centered on a point within 30 feet of the mud hulk. Each creature in that area must make a {@dc 13} Dexterity saving throw, taking 10 ({@damage 2d6 + 3}) bludgeoning damage on a failed save, or half as much damage on a successful one. The affected area is difficult terrain until the start of the mud hulk's next turn."
+				]
+			}
+		],
+		"traitTags": [
+			"Amorphous"
+		],
+		"languageTags": [
+			"GI",
+			"T"
+		],
+		"damageTags": [
+			"A",
+			"B"
+		],
+		"miscTags": [
+			"AOE",
+			"MW",
+			"RCH"
+		],
+		"savingThrowForced": [
+			"dexterity",
+			"strength"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"walk"
+		],
+		"_fSpeed": 40,
+		"_fAc": [
+			13
+		],
+		"_fHp": 68,
+		"_fAlign": [
+			"C",
+			"E"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [
+			"acid"
+		],
+		"_fImm": [],
+		"_fCondImm": [
+			"exhaustion",
+			"paralyzed"
+		],
+		"_fSave": [],
+		"_fSkill": [],
+		"_fSources": "BGG",
+		"_fPassive": 9,
+		"_fStr": 16,
+		"_fDex": 8,
+		"_fCon": 16,
+		"_fInt": 5,
+		"_fWis": 9,
+		"_fCha": 6,
+		"_fMisc": [
+			"AOE",
+			"MW",
+			"RCH",
+			"AC from Natural Armor",
+			"Has Token",
+			"Has Info",
+			"Has Images"
+		],
+		"_fLanguageTags": [
+			"GI",
+			"T"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"elemental"
+			],
+			"tags": [],
+			"asText": "Elemental",
+			"asTextShort": "Elemental",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "3",
+		"_fCr": [
+			"3"
+		]
+	},
+	{
+		"name": "Rime Hulk",
+		"source": "BGG",
+		"page": 162,
+		"size": [
+			"L"
+		],
+		"type": "elemental",
+		"alignment": [
+			"N",
+			"E"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			{
+				"ac": 15,
+				"from": [
+					"natural armor"
+				]
+			}
+		],
+		"hp": {
+			"average": 85,
+			"formula": "9d10 + 36"
+		},
+		"speed": {
+			"walk": 30
+		},
+		"str": 18,
+		"dex": 10,
+		"con": 18,
+		"int": 8,
+		"wis": 9,
+		"cha": 6,
+		"passive": 9,
+		"immune": [
+			"cold",
+			"poison"
+		],
+		"conditionImmune": [
+			"exhaustion",
+			"poisoned"
+		],
+		"languages": [
+			"Aquan",
+			"Giant"
+		],
+		"cr": "5",
+		"trait": [
+			{
+				"name": "Death Burst",
+				"entries": [
+					"When the rime hulk dies, it explodes in a 10-foot-radius sphere of frigid air and frost centered on itself. Each creature in that area must succeed on a {@dc 15} Constitution saving throw or take 10 ({@damage 3d6}) cold damage."
+				]
+			}
+		],
+		"action": [
+			{
+				"name": "Multiattack",
+				"entries": [
+					"The rime hulk makes two Slam attacks."
+				]
+			},
+			{
+				"name": "Slam",
+				"entries": [
+					"{@atk mw} {@hit 7} to hit, reach 10 ft., one target. {@h}9 ({@damage 1d10 + 4}) bludgeoning damage plus 9 ({@damage 2d8}) cold damage."
+				]
+			},
+			{
+				"name": "Trail of Frost {@recharge 5}",
+				"entries": [
+					"The rime hulk moves up to its speed without provoking opportunity attacks and can move through the space of any Medium or smaller creature. Each time the rime hulk enters another creature's space for the first time during this move, that creature must make a {@dc 15} Constitution saving throw. On a failed save, the creature takes 22 ({@damage 4d10}) cold damage, and its speed is reduced by 10 feet until the start of the rime hulk's next turn. On a successful save, the creature takes half as much damage only."
+				]
+			}
+		],
+		"traitTags": [
+			"Death Burst"
+		],
+		"actionTags": [
+			"Multiattack"
+		],
+		"languageTags": [
+			"AQ",
+			"GI"
+		],
+		"damageTags": [
+			"B",
+			"C"
+		],
+		"miscTags": [
+			"AOE",
+			"MW",
+			"RCH"
+		],
+		"savingThrowForced": [
+			"constitution"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"walk"
+		],
+		"_fSpeed": 30,
+		"_fAc": [
+			15
+		],
+		"_fHp": 85,
+		"_fAlign": [
+			"N",
+			"E",
+			"NX"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [],
+		"_fImm": [
+			"cold",
+			"poison"
+		],
+		"_fCondImm": [
+			"exhaustion",
+			"poisoned"
+		],
+		"_fSave": [],
+		"_fSkill": [],
+		"_fSources": "BGG",
+		"_fPassive": 9,
+		"_fStr": 18,
+		"_fDex": 10,
+		"_fCon": 18,
+		"_fInt": 8,
+		"_fWis": 9,
+		"_fCha": 6,
+		"_fMisc": [
+			"AOE",
+			"MW",
+			"RCH",
+			"AC from Natural Armor",
+			"Has Token",
+			"Has Info",
+			"Has Images",
+			"Has Recharge"
+		],
+		"_fLanguageTags": [
+			"AQ",
+			"GI"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"elemental"
+			],
+			"tags": [],
+			"asText": "Elemental",
+			"asTextShort": "Elemental",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "5",
+		"_fCr": [
+			"5"
+		]
+	},
+	{
+		"name": "Troll Mutate",
+		"source": "BGG",
+		"page": 187,
+		"size": [
+			"L"
+		],
+		"type": "giant",
+		"alignment": [
+			"C",
+			"E"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			{
+				"ac": 16,
+				"from": [
+					"natural armor"
+				]
+			}
+		],
+		"hp": {
+			"average": 95,
+			"formula": "10d10 + 40"
+		},
+		"speed": {
+			"walk": 30,
+			"fly": {
+				"number": 30,
+				"condition": "(winged form only)"
+			}
+		},
+		"str": 19,
+		"dex": 13,
+		"con": 18,
+		"int": 17,
+		"wis": 9,
+		"cha": 12,
+		"save": {
+			"con": "+7",
+			"int": "+6"
+		},
+		"skill": {
+			"perception": "+5",
+			"stealth": "+4"
+		},
+		"senses": [
+			"blindsight 60 ft."
+		],
+		"passive": 15,
+		"languages": [
+			"Giant",
+			"telepathy 60 ft."
+		],
+		"cr": "7",
+		"trait": [
+			{
+				"name": "Mutation",
+				"entries": [
+					"When the troll mutate is created, it gains one of four possible body mutations at random: 1, Elastic Body; 2, Psionic Mirror; 3, Spell Scarred; or 4, Winged Form. This mutation determines certain traits in this stat block."
+				]
+			},
+			{
+				"name": "Amorphous (Elastic Body Only)",
+				"entries": [
+					"The mutate can move through a space as narrow as 1 inch without squeezing."
+				]
+			},
+			{
+				"name": "Magic Resistance (Spell Scarred Only)",
+				"entries": [
+					"The mutate has advantage on saving throws against spells and other magical effects."
+				]
+			},
+			{
+				"name": "Psychic Rebuke (Psionic Mirror Only)",
+				"entries": [
+					"If the mutate takes psychic damage, each creature within 20 feet of it takes that damage as well."
+				]
+			},
+			{
+				"name": "Regeneration",
+				"entries": [
+					"The mutate regains 10 hit points at the start of its turn. If the mutate takes acid or fire damage, this trait doesn't function at the start of the mutate's next turn. The mutate dies only if it starts its turn with 0 hit points and doesn't regenerate. If the mutate starts its turn with 0 hit points and regenerates, it randomly gains a mutation it doesn't already have (up to a maximum of four mutations)."
+				]
+			}
+		],
+		"action": [
+			{
+				"name": "Multiattack",
+				"entries": [
+					"The mutate makes two Rend attacks."
+				]
+			},
+			{
+				"name": "Rend",
+				"entries": [
+					"{@atk mw} {@hit 7} to hit, reach 5 ft. (or 15 ft. if the mutate has the Elastic Body mutation), one target. {@h}15 ({@damage 2d10 + 4}) slashing damage plus 9 ({@damage 2d8}) force damage."
+				]
+			},
+			{
+				"name": "Psychic Burst {@recharge 5}",
+				"entries": [
+					"The mutate unleashes a wave of psychic energy. Each creature within 30 feet of the mutate must make a {@dc 14} Intelligence saving throw, taking 28 ({@damage 8d6}) psychic damage on a failed save, or half as much damage on a successful one."
+				]
+			}
+		],
+		"traitTags": [
+			"Amorphous",
+			"Magic Resistance",
+			"Regeneration"
+		],
+		"senseTags": [
+			"B"
+		],
+		"actionTags": [
+			"Multiattack"
+		],
+		"languageTags": [
+			"GI",
+			"TP"
+		],
+		"damageTags": [
+			"O",
+			"S",
+			"Y"
+		],
+		"miscTags": [
+			"AOE",
+			"MW"
+		],
+		"savingThrowForced": [
+			"intelligence"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"walk",
+			"fly"
+		],
+		"_fSpeed": 30,
+		"_fAc": [
+			16
+		],
+		"_fHp": 95,
+		"_fAlign": [
+			"C",
+			"E"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [],
+		"_fImm": [],
+		"_fCondImm": [],
+		"_fSave": [
+			"con",
+			"int"
+		],
+		"_fSkill": [
+			"perception",
+			"stealth"
+		],
+		"_fSources": "BGG",
+		"_fPassive": 15,
+		"_fStr": 19,
+		"_fDex": 13,
+		"_fCon": 18,
+		"_fInt": 17,
+		"_fWis": 9,
+		"_fCha": 12,
+		"_fMisc": [
+			"AOE",
+			"MW",
+			"AC from Natural Armor",
+			"Has Token",
+			"Has Info",
+			"Has Images",
+			"Has Recharge"
+		],
+		"_fLanguageTags": [
+			"GI",
+			"TP"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"giant"
+			],
+			"tags": [],
+			"asText": "Giant",
+			"asTextShort": "Giant",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "7",
+		"_fCr": [
+			"7"
+		]
+	},
+	{
+		"name": "Cinder Hulk",
+		"source": "BGG",
+		"page": 123,
+		"otherSources": [
+			{
+				"source": "GotSF"
+			}
+		],
+		"size": [
+			"L"
+		],
+		"type": "elemental",
+		"alignment": [
+			"C",
+			"E"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			{
+				"ac": 16,
+				"from": [
+					"natural armor"
+				]
+			}
+		],
+		"hp": {
+			"average": 84,
+			"formula": "8d10 + 40"
+		},
+		"speed": {
+			"walk": 40
+		},
+		"str": 20,
+		"dex": 12,
+		"con": 20,
+		"int": 9,
+		"wis": 14,
+		"cha": 10,
+		"save": {
+			"dex": "+4",
+			"con": "+8",
+			"wis": "+5"
+		},
+		"skill": {
+			"perception": "+5"
+		},
+		"passive": 15,
+		"immune": [
+			"fire",
+			"poison"
+		],
+		"conditionImmune": [
+			"exhaustion",
+			"poisoned"
+		],
+		"languages": [
+			"Giant",
+			"Ignan"
+		],
+		"cr": "7",
+		"trait": [
+			{
+				"name": "Death Burst",
+				"entries": [
+					"When the cinder hulk dies, it leaves behind a cloud of cinders and smoke that fills a 10-foot-radius sphere centered on its space. The sphere is heavily obscured. Any creature that moves into the area for the first time on a turn or starts its turn there must succeed on a {@dc 16} Constitution saving throw or take 10 ({@damage 3d6}) fire damage. The cloud lasts for 1 minute or until it is dispersed by strong wind."
+				]
+			}
+		],
+		"action": [
+			{
+				"name": "Multiattack",
+				"entries": [
+					"The cinder hulk makes two Slam attacks."
+				]
+			},
+			{
+				"name": "Slam",
+				"entries": [
+					"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}16 ({@damage 2d10 + 5}) bludgeoning damage plus 10 ({@damage 3d6}) fire damage."
+				]
+			},
+			{
+				"name": "Wave of Cinders {@recharge 5}",
+				"entries": [
+					"The cinder hulk emits a wave of smoldering ash from its face, hands, or chest in a 30-foot cone. Each creature in that area must make a {@dc 16} Dexterity saving throw. On a failed save, a creature takes 31 ({@damage 7d8}) fire damage and has the {@condition blinded} condition until the end of its next turn. On a successful save, a creature takes half as much damage only."
+				]
+			}
+		],
+		"traitTags": [
+			"Death Burst"
+		],
+		"actionTags": [
+			"Multiattack"
+		],
+		"languageTags": [
+			"GI",
+			"IG"
+		],
+		"damageTags": [
+			"B",
+			"F"
+		],
+		"miscTags": [
+			"AOE",
+			"MW"
+		],
+		"conditionInflict": [
+			"blinded"
+		],
+		"savingThrowForced": [
+			"constitution",
+			"dexterity"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"walk"
+		],
+		"_fSpeed": 40,
+		"_fAc": [
+			16
+		],
+		"_fHp": 84,
+		"_fAlign": [
+			"C",
+			"E"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [],
+		"_fImm": [
+			"fire",
+			"poison"
+		],
+		"_fCondImm": [
+			"exhaustion",
+			"poisoned"
+		],
+		"_fSave": [
+			"dex",
+			"con",
+			"wis"
+		],
+		"_fSkill": [
+			"perception"
+		],
+		"_fSources": [
+			"BGG",
+			{
+				"item": "GotSF",
+				"isIgnoreRed": true,
+				"rendered": null,
+				"searchText": null,
+				"isOtherSource": true
+			}
+		],
+		"_fPassive": 15,
+		"_fStr": 20,
+		"_fDex": 12,
+		"_fCon": 20,
+		"_fInt": 9,
+		"_fWis": 14,
+		"_fCha": 10,
+		"_fMisc": [
+			"AOE",
+			"MW",
+			"AC from Natural Armor",
+			"Has Token",
+			"Has Info",
+			"Has Images",
+			"Has Recharge"
+		],
+		"_fLanguageTags": [
+			"GI",
+			"IG"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"elemental"
+			],
+			"tags": [],
+			"asText": "Elemental",
+			"asTextShort": "Elemental",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "7",
+		"_fCr": [
+			"7"
+		]
+	},
+	{
+		"name": "Cairnwight",
+		"source": "BGG",
+		"page": 122,
+		"size": [
+			"H"
+		],
+		"type": "undead",
+		"alignment": [
+			"N"
+		],
+		"alignmentPrefix": "typically ",
+		"ac": [
+			{
+				"ac": 19,
+				"from": [
+					"natural armor"
+				]
+			}
+		],
+		"hp": {
+			"average": 138,
+			"formula": "12d12 + 60"
+		},
+		"speed": {
+			"walk": 40
+		},
+		"str": 23,
+		"dex": 10,
+		"con": 21,
+		"int": 10,
+		"wis": 12,
+		"cha": 9,
+		"save": {
+			"con": "+9",
+			"wis": "+5"
+		},
+		"skill": {
+			"athletics": "+10",
+			"perception": "+5",
+			"stealth": "+8"
+		},
+		"senses": [
+			"darkvision 60 ft."
+		],
+		"passive": 15,
+		"conditionImmune": [
+			"charmed",
+			"exhaustion",
+			"frightened",
+			"petrified"
+		],
+		"languages": [
+			"Giant"
+		],
+		"cr": "9",
+		"action": [
+			{
+				"name": "Multiattack",
+				"entries": [
+					"The cairnwight makes two Slam attacks or two Rock attacks, and it uses its Petrifying Touch if available."
+				]
+			},
+			{
+				"name": "Slam",
+				"entries": [
+					"{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) bludgeoning damage."
+				]
+			},
+			{
+				"name": "Rock",
+				"entries": [
+					"{@atk rw} {@hit 10} to hit, range 60/240 ft., one target. {@h}19 ({@damage 3d8 + 6}) bludgeoning damage, and the target must succeed on a {@dc 17} Strength saving throw or have the {@condition prone} condition."
+				]
+			},
+			{
+				"name": "Petrifying Touch {@recharge 5}",
+				"entries": [
+					"The cairnwight touches one creature it can see within 10 feet of itself. The target must succeed on a {@dc 17} Constitution saving throw or take 26 ({@damage 4d12}) force damage and have the {@condition restrained} condition as it begins to turn to stone. The affected target must repeat the saving throw at the end of its next turn. On a successful save, the effect ends on the target. On a failed save, the target has the {@condition petrified} condition instead of the {@condition restrained} condition."
+				]
+			}
+		],
+		"senseTags": [
+			"D"
+		],
+		"actionTags": [
+			"Multiattack"
+		],
+		"languageTags": [
+			"GI"
+		],
+		"damageTags": [
+			"B",
+			"O"
+		],
+		"miscTags": [
+			"MW",
+			"RCH",
+			"RW"
+		],
+		"conditionInflict": [
+			"petrified",
+			"prone",
+			"restrained"
+		],
+		"savingThrowForced": [
+			"constitution",
+			"strength"
+		],
+		"hasToken": true,
+		"hasFluff": true,
+		"hasFluffImages": true,
+		"__prop": "monster",
+		"_fSpeedType": [
+			"walk"
+		],
+		"_fSpeed": 40,
+		"_fAc": [
+			19
+		],
+		"_fHp": 138,
+		"_fAlign": [
+			"N",
+			"NY"
+		],
+		"_fEnvironment": [
+			"none"
+		],
+		"_fVuln": [],
+		"_fRes": [],
+		"_fImm": [],
+		"_fCondImm": [
+			"charmed",
+			"exhaustion",
+			"frightened",
+			"petrified"
+		],
+		"_fSave": [
+			"con",
+			"wis"
+		],
+		"_fSkill": [
+			"athletics",
+			"perception",
+			"stealth"
+		],
+		"_fSources": "BGG",
+		"_fPassive": 15,
+		"_fStr": 23,
+		"_fDex": 10,
+		"_fCon": 21,
+		"_fInt": 10,
+		"_fWis": 12,
+		"_fCha": 9,
+		"_fMisc": [
+			"MW",
+			"RCH",
+			"RW",
+			"AC from Natural Armor",
+			"Has Token",
+			"Has Info",
+			"Has Images",
+			"Has Recharge"
+		],
+		"_fLanguageTags": [
+			"GI"
+		],
+		"_fEquipment": [],
+		"_pTypes": {
+			"types": [
+				"undead"
+			],
+			"tags": [],
+			"asText": "Undead",
+			"asTextShort": "Undead",
+			"typeSidekick": null,
+			"tagsSidekick": [],
+			"asTextSidekick": null
+		},
+		"_pCr": "9",
+		"_fCr": [
+			"9"
+		]
+	}
+]
