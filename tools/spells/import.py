@@ -43,9 +43,9 @@ def main():
                         'id': folders[map_spell_level_to_folder(entity['level'])]
                     },
                     'isShared': False,
-                    'isSRD': entity['srd'],
-                    'tags': f"{entity['source']}" + ",Basic Rules" if (entity['basicRules']) else "",
-                    'textualdata': f"name: {entity['name']}",
+                    'isSRD': entity['srd'] if 'srd' in entity else False,
+                    'tags': f"{entity['source']}" + ",Basic Rules" if 'basicRules' in entity else "",
+                    'textualdata': textdata,
                 })
             else:
                 print("creating block for", entity['name'])

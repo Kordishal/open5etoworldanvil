@@ -12,7 +12,7 @@ if __name__ == '__main__':
         authentication_token=os.getenv('AUTHENTICATION_TOKEN')
     )
 
-    block = client.block.get('1398047', 2)
+    block = client.block.get('1406208', 2)
 
     print(json.dumps(block, indent=4))
     with open('data/example.yml', 'w', encoding='utf-8') as f:

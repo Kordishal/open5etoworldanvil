@@ -108,11 +108,13 @@ def get_roll(entry: re.Match[str]):
     else:
         raise Exception("No roll found")
 
+
 def get_dc(entry: re.Match[str]):
     if entry:
         return f"DC {entry.group(1)}"
     else:
         raise Exception("No DC found")
+
 
 def get_condition(entry: re.Match[str]):
     if entry:

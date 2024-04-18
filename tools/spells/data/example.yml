@@ -1,20 +1,20 @@
-name: Gate
-spell_level: 9-level
-casting_time: '1 action'
-range: '12 sq.'
-components: 'V, S, M'
-materials: 'a diamond worth at least 5,000 gp'
-duration: 'Concentration, up to 1 minute'
-school: Conjuration
+name: Catapult
+spell_level: '0-level (Cantrip)'
+casting_time: ''
+range: ''
+components: ''
+materials: ''
+duration: ''
+school: Abjuration
 attack: ''
 effect: ''
 higher_levels: ''
-classes: 'Cleric, Sorcerer, Wizard'
-spell_description: "You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 1.5m to 6m in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration. The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal. Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains.\r\n\r\nWhen you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn’t work). If that creature is on a plane other than the one you are on, the portal opens in the named creature’s immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the DM deems appropriate. It might leave, attack you, or help you."
-source: 'Basic Rules, pg. 244'
-tags: 'Basic Rules'
+classes: ''
+ritual: '1'
+spell_description: ''
+source: ''
+tags: XGE
 templateId: '3000'
-blockId: '1398047'
+blockId: '1406208'
 world: cd8d7774-14cd-4451-baa2-3c0d8c44cfe7
-folder: '25789'
-isShared: 'on'
+folder: '26926'
