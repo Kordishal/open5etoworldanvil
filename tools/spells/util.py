@@ -1,8 +1,3 @@
-
-
-
-
-
 def map_spell_to_enum(level: int) -> str:
     return {
         0: '0-level',
@@ -31,24 +26,82 @@ def map_spell_school_to_enum(school: str) -> str:
     }[school]
 
 
+expected_list_keys = [
+    'name',
+    'level',
+    'srd',
+    'basicRules',
+    'duration',
+    'time',
+    'range',
+    'school',
+    'components',
+    'source',
+    'page',
+    'entries'
+]
 
 
 def update(entity: dict) -> str:
+    has_unexpected_keys = False
+    for key in entity:
+        if key not in expected_list_keys:
+            print(f"Unexpected key: {key} in entity: {entity['name']}")
+            has_unexpected_keys = True
+    if has_unexpected_keys:
+        raise Exception("Unexpected keys found in entity")
+    components = entity['components']
+    material = ''
+    value_components = list()
+    if 'v' in components:
+        value_components.append('V')
+    if 's' in components:
+        value_components.append('S')
+    if 'm' in components:
+        value_components.append('M')
+        material = components['m']['text']
 
-    return f"""name: {entity['name']} 
+    duration_source = entity['duration']
+    if len(duration_source) > 1:
+        raise Exception("Multiple durations found")
+    else:
+        duration_source = duration_source[0]
+        if duration_source['type'] == 'instant':
+            duration = 'Instantaneous'
+        elif duration_source['type'] == 'timed':
+            duration = f"{duration_source['duration']['number']} {duration_source['duration']['unit']}"
+        else:
+            raise Exception(f"Unexpected duration type: {duration_source['type']} found in entity: {entity['name']}")
+
+    range_source = entity['range']
+    if range_source['type'] == 'radius':
+        if range_source['distance']['type'] == 'feet':
+            range = f"{range_source['distance']['amount'] // 5} sq."
+        else:
+            raise Exception(
+                f"Unexpected range distance type: {range_source['distance']['type']} found in entity: {entity['name']}")
+    else:
+        raise Exception(f"Unexpected range type: {range_source['type']} found in entity: {entity['name']}")
+
+    spell_classes = list()
+    classes = entity['classes']
+    for cl in classes['fromClassList']:
+        spell_classes.append(cl['name'])
+
+    return f"""name: "{entity['name']}"
 spell_level: {map_spell_to_enum(entity['level'])}
-casting_time: '1 action'
-range: '12 sq.'
-components: 'V, S, M'
-materials: 'a diamond worth at least 5,000 gp'
-duration: 'Concentration, up to 1 minute'
-school: Conjuration
+casting_time: '{entity['duration'][0]['number']} {entity['duration'][0]['unit']}'
+range: '{range}'
+components: '{', '.join(value_components)}'
+materials: '{material}'
+duration: '{duration}'
+school: {map_spell_school_to_enum(entity['school'])}
 attack: ''
 effect: ''
 higher_levels: ''
-classes: 'Cleric, Sorcerer, Wizard'
-spell_description: "You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 1.5m to 6m in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration. The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal. Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains.\r\n\r\nWhen you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn’t work). If that creature is on a plane other than the one you are on, the portal opens in the named creature’s immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the DM deems appropriate. It might leave, attack you, or help you."
-source: 'Basic Rules, pg. 244'
+classes: '{', '.join(spell_classes)}'
+spell_description: "{'\\n\\n'.join(entity['entries'])}"
+source: '{entity['source']}, p. {entity['page']}'
 """
 
 
@@ -65,4 +118,3 @@ def map_spell_level_to_folder(level: int) -> str:
         8: 'Spells - 8th Level',
         9: 'Spells - 9th Level'
     }[level]
-

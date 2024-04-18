@@ -43,7 +43,8 @@ def main():
                         'id': folders[map_spell_level_to_folder(entity['level'])]
                     },
                     'isShared': False,
-                    'tags': f"{entity['source']}",
+                    'isSRD': entity['srd'],
+                    'tags': f"{entity['source']}" + ",Basic Rules" if (entity['basicRules']) else "",
                     'textualdata': f"name: {entity['name']}",
                 })
             else:
