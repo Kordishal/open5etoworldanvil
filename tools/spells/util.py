@@ -126,10 +126,29 @@ def transform_entry(entry: str) -> str:
         else:
             raise Exception(f"No source found in entry: {entry}")
 
+    def get_adventure(match: re.Match[str]):
+        if match:
+            return f"{match.group(1)}"
+        else:
+            raise Exception(f"No adventure found in entry: {entry}")
+
+    def get_class_feature(match: re.Match[str]):
+        if match:
+            return f"{match.group(1)}"
+        else:
+            raise Exception(f"No class feature found in entry: {entry}")
+
+    def get_d20(match: re.Match[str]):
+        if match:
+            return f"[roll:1d20+{match.group(1)}]"
+        else:
+            raise Exception(f"No d20 found in entry: {entry}")
+
     entry = re.sub(r'\{@chance (\d+)\|\|\|.+?\|.+?}', get_chance, entry)
     entry = re.sub(r'\{@condition (.+?)}', get_condition, entry)
     entry = re.sub(r'\{@damage (.+?)}', get_roll, entry)
     entry = re.sub(r'\{@dice (.+?)}', get_roll, entry)
+    entry = re.sub(r'\{@d20 (\d+)}', get_d20, entry)
     entry = re.sub(r'\{@scaledamage .+?\|.+?\|(.+?)}', get_roll, entry)
     entry = re.sub(r'\{@scaledice .+?\|.+?\|(.+?)}', get_roll, entry)
     entry = re.sub(r'\{@item (.+?)\|.+?}', get_item_name, entry)
@@ -139,13 +158,17 @@ def transform_entry(entry: str) -> str:
     entry = re.sub(r'\{@status (.+?)(\|\|(.+?))?}', get_status, entry)
     entry = re.sub(r'\{@spell (.+?)}', get_spell, entry)
     entry = re.sub(r'\{@sense (.+?)}', get_sense, entry)
-    entry = re.sub(r'\{@filter (.+?)\|.+?\|.+?\|.+?(\|.+?)?}', get_filter, entry)
-    entry = re.sub(r'\{@creature (.+?)(\|(\|)?.+?)?}', get_filter, entry)
+    entry = re.sub(r'\{@filter (.+?)(\|.+?)?}', get_filter, entry)
+    entry = re.sub(r'\{@creature (.+?)(\|.+?)?}', get_filter, entry)
     entry = re.sub(r'\{@book school of magic\|PHB\|10\|The Schools of Magic}', 'school of magic', entry)
     entry = re.sub(r'\{@book jump distance\|phb\|8\|Jumping}', 'jump distance', entry)
     entry = re.sub(r'\{@action (.+?)}', get_action, entry)
     entry = re.sub(r'\{@note Additional \{@filter animal form choices\|bestiary\|Miscellaneous=Familiar} may be available at the DM\'s discretion\.}', 'Additional animal form choices may be available at the DM\'s discretion.', entry)
+    entry = re.sub(r'\{@note Additional animal form choices may be available at the DM\'s discretion\.}', 'Additional animal form choices may be available at the DM\'s discretion.', entry)
     entry = re.sub(r'\{@i (.+?)}', make_italics, entry)
+    entry = re.sub(r'\{@adventure (.+?)\|.+?\|.+?}', get_adventure, entry)
+    entry = re.sub(r'\{@classFeature (.+?)\|Paladin\|PHB\|1}', get_class_feature, entry)
+
 
     if '@' in entry:
         raise Exception(f"Entry with '@': {entry}")
@@ -312,6 +335,10 @@ def update(entity: dict) -> str:
             range_value = 'Touch'
         elif range_source['distance']['type'] == 'self':
             range_value = 'Self'
+        elif range_source['distance']['type'] == 'sight':
+            range_value = 'Sight'
+        elif range_source['distance']['type'] == 'unlimited':
+            range_value = 'Unlimited'
         else:
             raise Exception(
                 f"Unexpected range distance type: {range_source['distance']['type']} found in entity: {entity['name']}")
@@ -335,11 +362,20 @@ def update(entity: dict) -> str:
         else:
             raise Exception(
                 f"Unexpected range distance type: {range_source['distance']['type']} found in entity: {entity['name']}")
+    elif range_source['type'] == 'cube':
+        if range_source['distance']['type'] == 'feet':
+            range_value = f"Self ({range_source['distance']['amount'] // 5}-square cube)"
+        else:
+            raise Exception(
+                f"Unexpected range distance type: {range_source['distance']['type']} found in entity: {entity['name']}")
+    elif range_source['type'] == 'sphere':
+        if range_source['distance']['type'] == 'feet':
+            range_value = f"Self ({range_source['distance']['amount'] // 5}-square-radius sphere)"
+        else:
+            raise Exception(
+                f"Unexpected range distance type: {range_source['distance']['type']} found in entity: {entity['name']}")
     else:
         raise Exception(f"Unexpected range type: {range_source['type']} found in entity: {entity['name']}")
-
-    if len(entity['time']) > 1:
-        raise Exception("Multiple time values found")
 
     spell_classes = list()
     if 'classes' in entity:
@@ -370,6 +406,11 @@ def update(entity: dict) -> str:
         attack_values.extend(entity['conditionInflict'])
     attack_value = ', '.join(attack_values)
 
+    time_value = list()
+    for time in entity['time']:
+        time_value.append(f"{time['number']} {time['unit']}")
+    time_value = ', '.join(time_value)
+
     ritual = False
     if 'meta' in entity:
         if 'ritual' in entity['meta']:
@@ -378,7 +419,7 @@ def update(entity: dict) -> str:
             raise Exception(f"Unexpected meta keys found: {entity['meta']}")
     return f"""name: "{entity['name']}"
 spell_level: "{map_spell_to_enum(entity['level'])}"
-casting_time: "{entity['time'][0]['number']} {entity['time'][0]['unit']}"
+casting_time: "{time_value}"
 range: "{range_value}"
 components: "{', '.join(value_components)}"
 materials: "{material}"
