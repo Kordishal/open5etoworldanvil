@@ -95,6 +95,18 @@ xp = {
 }
 
 
+def collect_monster_type(data: dict):
+    if isinstance(data['type'], dict):
+        if 'swarmSize' in data['type']:
+            return f'swarm of {sizes[data["type"]["swarmSize"]]} {data["type"]["type"].capitalize()}'
+        else:
+            raise Exception(f"Unexpected type: {data['type']}")
+    elif isinstance(data['type'], str):
+        return data['type'].capitalize()
+    else:
+        raise Exception(f"Unexpected type: {data['type']}")
+
+
 def get_hit(entry: re.Match[str]):
     if entry:
         return f"+{entry.group(1)}"
@@ -208,7 +220,7 @@ def update(data: dict):
 name: {data['name']}
 challenge_rating: "{data['cr']}"
 xp: "{xp[data['cr']]}"
-types: "{data['type'].capitalize()}"
+types: "{collect_monster_type(data)}"
 pb: '{proficiency_bonus[data['cr']]}'
 size: {', '.join([sizes[size] for size in data['size']])}
 sizer: NONE

@@ -13,7 +13,8 @@ if __name__ == '__main__':
         authentication_token=os.getenv('AUTHENTICATION_TOKEN')
     )
 
-    with open('data/blocks.csv', 'r') as f:
-        data = csv.reader(f)
-        for row in data:
-            client.block.delete(row[1])
+    for f in client.world.statblock_folders(world_id='cd8d7774-14cd-4451-baa2-3c0d8c44cfe7'):
+        if f['title'] == 'Monsters - Plants':
+            for s in client.block_folder.blocks(f['id']):
+                print(s['title'])
+                client.block.delete(s['id'])
