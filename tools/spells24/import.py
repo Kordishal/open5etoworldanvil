@@ -140,7 +140,7 @@ def parse_spell(lines: List[str]) -> Dict[str, Any]:
         description = description.replace("\n\n[li]", "\n\n[ul][li]")
         description = description.replace("[/li]\n\n", "[/li][/ul]\n\n")
 
-    description = description.strip()
+    description = description.strip("\\n")
 
     spell["textualdata"] = f"""name: "{spell["title"]}"
 level: "{map_spell_level_to_input(spell['level'])}"
@@ -206,25 +206,24 @@ def main():
         print(f"Number of spells: {len(spells)}")
         for s in spells:
             spell_entity = parse_spell(s)
-            spell_entity['state'] = "private"  # let others view the statblock.
-            spell_entity['isShared'] = False  # share with community.
-            spell_entity['dataParser'] = 'yaml'
-            spell_entity['template'] = {
-                'id': 17213  # Spell (D&D 5e 2024)
-            }
-            spell_entity['RPGSRD'] = {
-                'id': 739  # D&D 5e 2024
-            }
-            spell_entity['folder'] = {
-                'id': folders[map_spell_level_to_folder(spell_entity['level'])]
-            }
-            spell_entity['world'] = {
-                'id': world['id']
-            }
-
+            spell_entity['isShared'] = True  # share with community.
             if spell_entity['title'] in existing_blocks:
                 block = client.block.patch(existing_blocks[spell_entity['title']], spell_entity)
             else:
+                spell_entity['state'] = "private"
+                spell_entity['dataParser'] = 'yaml'
+                spell_entity['template'] = {
+                    'id': 17213  # Spell (D&D 5e 2024)
+                }
+                spell_entity['RPGSRD'] = {
+                    'id': 739  # D&D 5e 2024
+                }
+                spell_entity['folder'] = {
+                    'id': folders[map_spell_level_to_folder(spell_entity['level'])]
+                }
+                spell_entity['world'] = {
+                    'id': world['id']
+                }
                 block = client.block.put(spell_entity)
             written_rows.append([spell_entity['title'], block['id'], block['url']])
 
