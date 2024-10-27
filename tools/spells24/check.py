@@ -12,7 +12,7 @@ if __name__ == '__main__':
         authentication_token=os.getenv('AUTHENTICATION_TOKEN')
     )
 
-    block = client.block.get('1482887', 2)
+    block = client.block.get('1483629', 2)
 
     print(json.dumps(block, indent=4))
 

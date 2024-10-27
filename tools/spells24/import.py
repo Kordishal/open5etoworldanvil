@@ -109,7 +109,7 @@ def parse_spell(lines: List[str]) -> Dict[str, Any]:
         elif line.startswith("***Cantrip Upgrade.*** "):
             higherlevel = line[len("***Cantrip Upgrade.*** "):]
         else:
-            description += process_line(line.strip()) + "\n"
+            description += process_line(line.strip()) + "\\n"
 
     if '|' in description:
         matches = re.findall(r'\|.+?\|\n\n', description, flags=re.S)
@@ -192,6 +192,7 @@ def main():
                 existing_blocks[row[0]] = row[1]
 
     with open('data/phb_24_spells.md', 'r') as f:
+        written_rows = list()
         spells = []
         spell_data = None
         for line in f.readlines():
@@ -220,12 +221,16 @@ def main():
             spell_entity['world'] = {
                 'id': world['id']
             }
-            print(spell_entity)
 
-            #if spell_entity['title'] in existing_blocks:
-            #    client.block.patch(existing_blocks[spell_entity['title']], spell_entity)
-            #else:
-            #    client.block.put(spell_entity)
+            if spell_entity['title'] in existing_blocks:
+                block = client.block.patch(existing_blocks[spell_entity['title']], spell_entity)
+            else:
+                block = client.block.put(spell_entity)
+            written_rows.append([spell_entity['title'], block['id'], block['url']])
+
+        with open('data/blocks.csv', 'w') as output:
+            writer = csv.writer(output, lineterminator='\n')
+            writer.writerows(written_rows)
 
 
 if __name__ == '__main__':
